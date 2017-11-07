@@ -7,8 +7,8 @@ rvm:
   - 2.3.4
   - 2.4.1
 
-#after_script:
-#  - bundle exec codeclimate-test-reporter
+after_script:
+  - bundle exec codeclimate-test-reporter
 
-#env:
-#  CODECLIMATE_REPO_TOKEN: 
+env:
+  CODECLIMATE_REPO_TOKEN: 085192d9e3537c39bd01d2f110619ba42dfc7899f5aaa883b612cf0cabdd65d4 
