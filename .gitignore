@@ -11,6 +11,7 @@
 /.ruby-version
 Gemfile.lock
 /coverage
+.byebug_history
 
 # rspec failure tracking
 .rspec_status
