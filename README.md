@@ -1,5 +1,9 @@
 # JWA
 
+[![Build Status](https://travis-ci.org/jwt/ruby-jwa.svg)](https://travis-ci.org/jwt/ruby-jwa)
+[![Code Climate](https://codeclimate.com/github/jwt/ruby-jwa/badges/gpa.svg)](https://codeclimate.com/github/jwt/ruby-jwa)
+[![Test Coverage](https://codeclimate.com/github/jwt/ruby-jwa/badges/coverage.svg)](https://codeclimate.com/github/aomega08/jwa/coverage)
+
 A ruby implementation of the RFC 7518 JSON Web Algorithms (JWA) standard.
 
 ## Installation
