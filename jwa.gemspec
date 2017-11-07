@@ -9,9 +9,10 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Francesco Boffa"]
   spec.email         = ["fra.boffa@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = 'JSON Web Algorithms implementation in Ruby'
+  spec.description   = 'A Ruby implementation of the RFC 7518 JSON Web Algorithms (JWA) standard'
+  spec.homepage      = "https://github.com/jwt/ruby-jwa"
+  spec.license       = "MIT"
 
   spec.files = `git ls-files`.split("\n")
   spec.require_paths = ["lib"]
