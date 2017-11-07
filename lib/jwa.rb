@@ -1,4 +1,4 @@
-require "jwa/version"
+require 'jwa/version'
 
 module JWA
   # Your code goes here...
