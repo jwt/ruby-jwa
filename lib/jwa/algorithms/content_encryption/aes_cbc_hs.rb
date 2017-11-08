@@ -71,7 +71,6 @@ module JWA
           base.extend(ClassMethods)
         end
 
-        # Provides availability checks for Key Encryption algorithms
         module ClassMethods
           def available?
             Cipher.for(cipher_name)
