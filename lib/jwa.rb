@@ -1,3 +1,6 @@
+require 'base64'
+require 'json'
+require 'jwk'
 require 'openssl'
 require 'securerandom'
 

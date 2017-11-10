@@ -18,6 +18,8 @@ Gem::Specification.new do |spec|
   spec.files = `git ls-files`.split("\n")
   spec.require_paths = ['lib']
 
+  spec.add_dependency 'jwk'
+
   spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'simplecov'
