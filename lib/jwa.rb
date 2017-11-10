@@ -8,6 +8,8 @@ require 'jwa/algorithms'
 require 'jwa/cipher'
 require 'jwa/version'
 
+require 'jwa/support/pbkdf2'
+
 module JWA
   class InvalidKey < StandardError; end
   class InvalidIV < StandardError; end
