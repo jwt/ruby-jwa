@@ -6,5 +6,8 @@ require 'jwa/algorithms/content_encryption/a128gcm'
 require 'jwa/algorithms/content_encryption/a192gcm'
 require 'jwa/algorithms/content_encryption/a256gcm'
 
+require 'jwa/algorithms/key_management/a128_kw'
+require 'jwa/algorithms/key_management/a192_kw'
+require 'jwa/algorithms/key_management/a256_kw'
 require 'jwa/algorithms/key_management/rsa15'
 require 'jwa/algorithms/key_management/rsa_oaep'

@@ -28,7 +28,7 @@ describe JWA::Algorithms::KeyManagement::RsaOaep do
                              117, 114, 135, 206])
   end
 
-  it 'decrypts according to the Test Case (RFC 7516 - Section A.2)' do
+  it 'decrypts according to the Test Case (RFC 7516 - Section A.1)' do
     key = jwk.to_openssl_key
 
     alg = described_class.new(key)
