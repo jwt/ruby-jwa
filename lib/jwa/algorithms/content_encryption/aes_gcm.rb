@@ -20,9 +20,9 @@ module JWA
           end
         end
 
-        def encrypt(cleartext, authenticated_data)
+        def encrypt(plaintext, authenticated_data)
           setup_cipher(:encrypt, authenticated_data)
-          ciphertext = cipher.update(cleartext) + cipher.final
+          ciphertext = cipher.update(plaintext) + cipher.final
 
           [ciphertext, cipher.auth_tag]
         end
