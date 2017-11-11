@@ -1,20 +1,15 @@
+require 'jwa/algorithms/key_management/aes_gcm_kw'
+
 module JWA
   module Algorithms
     module KeyManagement
       class A128GcmKw
-        def initialize(key, iv)
-          @key = key
-          @iv = iv
-        end
+        include AesGcmKw
 
-        def encrypt(plaintext)
-          cipher = A128gcm.new(@key, @iv)
-          cipher.encrypt(plaintext, '')
-        end
-
-        def decrypt(ciphertext, tag)
-          cipher = A128gcm.new(@key, @iv)
-          cipher.decrypt(ciphertext, '', tag)
+        class << self
+          def cipher
+            A128gcm
+          end
         end
       end
     end
