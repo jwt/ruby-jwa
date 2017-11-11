@@ -3,20 +3,20 @@ require 'jwa/algorithms/key_management/ecdh_es_kw'
 module JWA
   module Algorithms
     module KeyManagement
-      class EcdhEsA256kw
+      class EcdhEsA128Kw
         include EcdhEsKw
 
         class << self
           def alg_name
-            'ECDH-ES+A256KW'
+            'ECDH-ES+A192KW'
           end
 
           def shared_key_length
-            32
+            24
           end
 
           def kw_class
-            A256Kw
+            A192Kw
           end
         end
       end

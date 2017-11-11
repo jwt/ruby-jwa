@@ -1,7 +1,7 @@
 require_relative './aes_gcm_shared'
 
 # Test vector from JWE spec
-describe JWA::Algorithms::ContentEncryption::A256gcm do
+describe JWA::Algorithms::ContentEncryption::A256Gcm do
   include_examples 'AES-GCM' do
     let(:plaintext) do
       int_byte_array_to_bytes(

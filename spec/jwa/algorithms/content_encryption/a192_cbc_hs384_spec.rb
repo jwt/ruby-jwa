@@ -1,6 +1,6 @@
 require_relative './aes_cbc_hs_shared'
 
-describe JWA::Algorithms::ContentEncryption::A192cbcHs384 do
+describe JWA::Algorithms::ContentEncryption::A192CbcHs384 do
   include_examples 'AES-CBC-HS' do
     let(:key) do
       '00 01 02 03 04 05 06 07 08 09 0a 0b 0c 0d 0e 0f

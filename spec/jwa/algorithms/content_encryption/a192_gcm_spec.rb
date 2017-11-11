@@ -1,7 +1,7 @@
 require_relative './aes_gcm_shared'
 
 # Test vector from http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.694.695&rep=rep1&type=pdf
-describe JWA::Algorithms::ContentEncryption::A192gcm do
+describe JWA::Algorithms::ContentEncryption::A192Gcm do
   include_examples 'AES-GCM' do
     let(:plaintext) do
       hex_string_to_bytes(
