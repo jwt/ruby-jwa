@@ -10,6 +10,10 @@ module JWA
         def initialize(key, iv = "\xA6\xA6\xA6\xA6\xA6\xA6\xA6\xA6")
           @key = key.force_encoding('ASCII-8BIT')
           @iv = iv.force_encoding('ASCII-8BIT')
+
+          if @key.length != self.class.key_length
+            raise JWA::InvalidKey, "Invalid Key. Expected length: #{self.class.key_length}. Actual: #{@key.length}."
+          end
         end
 
         def encrypt(plaintext)

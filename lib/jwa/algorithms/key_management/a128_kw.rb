@@ -7,6 +7,10 @@ module JWA
         include AesKw
 
         class << self
+          def key_length
+            16
+          end
+
           def cipher_name
             'AES-128-ECB'
           end

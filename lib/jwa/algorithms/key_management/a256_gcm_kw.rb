@@ -7,6 +7,10 @@ module JWA
         include AesGcmKw
 
         class << self
+          def key_length
+            32
+          end
+
           def cipher
             A256Gcm
           end

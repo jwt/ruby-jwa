@@ -5,6 +5,10 @@ module JWA
         def initialize(key, iv = nil)
           @key = key
           @iv = iv
+
+          if @key.length != self.class.key_length
+            raise JWA::InvalidKey, "Invalid Key. Expected length: #{self.class.key_length}. Actual: #{@key.length}."
+          end
         end
 
         def encrypt(plaintext)

@@ -36,4 +36,8 @@ describe JWA::Algorithms::KeyManagement::A128Kw do
     alg2 = described_class.new(key, "\xA5\xA5\xA5\xA5\xA5\xA5\xA5\xA5")
     expect { alg2.decrypt(ciph) }.to raise_error(StandardError)
   end
+
+  it 'raises for wrong key sizes' do
+    expect { described_class.new("\x00" * 12) }.to raise_error(JWA::InvalidKey)
+  end
 end
