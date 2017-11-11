@@ -5,17 +5,16 @@ module JWA
     module KeyManagement
       # Generic AES Key Wrapping algorithm for any key size.
       module AesKw
-        attr_accessor :key
-        attr_accessor :iv
+        attr_reader :key, :iv
 
-        def initialize(key = nil, iv = "\xA6\xA6\xA6\xA6\xA6\xA6\xA6\xA6")
-          self.iv = iv.force_encoding('ASCII-8BIT')
-          self.key = key.force_encoding('ASCII-8BIT')
+        def initialize(key, iv = "\xA6\xA6\xA6\xA6\xA6\xA6\xA6\xA6")
+          @key = key.force_encoding('ASCII-8BIT')
+          @iv = iv.force_encoding('ASCII-8BIT')
         end
 
-        def encrypt(cek)
-          a = iv
-          r = cek.force_encoding('ASCII-8BIT').scan(/.{8}/m)
+        def encrypt(plaintext)
+          a = @iv
+          r = plaintext.force_encoding('ASCII-8BIT').scan(/.{8}/m)
 
           6.times do |j|
             a, r = kw_encrypt_round(j, a, r)
@@ -36,15 +35,15 @@ module JWA
           [a, r]
         end
 
-        def decrypt(encrypted_cek)
-          c = encrypted_cek.force_encoding('ASCII-8BIT').scan(/.{8}/m)
+        def decrypt(ciphertext)
+          c = ciphertext.force_encoding('ASCII-8BIT').scan(/.{8}/m)
           a, *r = c
 
           5.downto(0) do |j|
             a, r = kw_decrypt_round(j, a, r)
           end
 
-          if a != iv
+          if a != @iv
             raise StandardError, 'The encrypted key has been tampered. Do not use this key.'
           end
 
@@ -73,14 +72,14 @@ module JWA
 
         def encrypt_round(data)
           cipher.encrypt
-          cipher.key = key
+          cipher.key = @key
           cipher.padding = 0
           cipher.update(data) + cipher.final
         end
 
         def decrypt_round(data)
           cipher.decrypt
-          cipher.key = key
+          cipher.key = @key
           cipher.padding = 0
           cipher.update(data) + cipher.final
         end

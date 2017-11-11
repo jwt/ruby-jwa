@@ -2,7 +2,7 @@ module JWA
   module Algorithms
     module KeyManagement
       module AesGcmKw
-        def initialize(key, iv)
+        def initialize(key, iv = nil)
           @key = key
           @iv = iv
         end
