@@ -1,5 +1,3 @@
-require 'jwa/support/concat_kdf'
-
 module JWA
   module Algorithms
     module KeyManagement

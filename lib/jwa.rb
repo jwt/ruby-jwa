@@ -8,6 +8,7 @@ require 'jwa/algorithms'
 require 'jwa/cipher'
 require 'jwa/version'
 
+require 'jwa/support/concat_kdf'
 require 'jwa/support/pbkdf2'
 
 module JWA
