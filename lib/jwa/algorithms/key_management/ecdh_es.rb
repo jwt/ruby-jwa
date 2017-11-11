@@ -1,3 +1,5 @@
+require 'jwa/support/concat_kdf'
+
 module JWA
   module Algorithms
     module KeyManagement
@@ -19,8 +21,8 @@ module JWA
         def encrypt(public_key)
           z = @private_key.dh_compute_key(public_key)
 
-          concat = [1].pack('N') + z + @info
-          Digest::SHA256.new.digest(concat)[0...@keydatalength]
+          concat_kdf = Support::ConcatKDF.new(Digest::SHA256.new)
+          concat_kdf.run(z, @info, @keydatalength * 8)
         end
 
         def decrypt(public_key)
