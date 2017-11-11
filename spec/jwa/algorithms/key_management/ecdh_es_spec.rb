@@ -15,7 +15,7 @@ describe JWA::Algorithms::KeyManagement::EcdhEs do
     rescue Exception => e
       raise e unless defined?(JRUBY_VERSION)
 
-      $stderr.puts('WARNING: This test fails on jRuby due to incorrect EC Keys implementation. It would still work ' +
+      $stderr.puts('WARNING: This test fails on jRuby due to incorrect EC Keys implementation. It would still work ' \
                    'if the OpenSSL keys were generated instead of loaded.')
     end
   end
@@ -29,7 +29,7 @@ describe JWA::Algorithms::KeyManagement::EcdhEs do
     rescue Exception => e
       raise e unless defined?(JRUBY_VERSION)
 
-      $stderr.puts('WARNING: This test fails on jRuby due to incorrect EC Keys implementation. It would still work ' +
+      $stderr.puts('WARNING: This test fails on jRuby due to incorrect EC Keys implementation. It would still work ' \
                    'if the OpenSSL keys were generated instead of loaded.')
     end
   end

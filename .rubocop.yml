@@ -10,3 +10,7 @@ Style/Documentation:
 
 Style/GuardClause:
   Enabled: false
+
+Lint/RescueException:
+  Exclude:
+    - spec/**/*
