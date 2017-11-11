@@ -26,4 +26,10 @@ describe JWA::Algorithms::ContentEncryption::A256CbcHs512 do
        2e 62 69 a8 c5 6a 81 6d bc 1b 26 77 61 95 5b c5'
     end
   end
+
+  describe '.enc_name' do
+    it 'equals A256CBC-HS512' do
+      expect(described_class.enc_name).to eq 'A256CBC-HS512'
+    end
+  end
 end

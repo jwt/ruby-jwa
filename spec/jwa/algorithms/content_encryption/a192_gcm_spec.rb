@@ -40,4 +40,10 @@ describe JWA::Algorithms::ContentEncryption::A192Gcm do
       hex_string_to_bytes('2519498e80f1478f37ba55bd6d27618c')
     end
   end
+
+  describe '.enc_name' do
+    it 'equals A192GCM' do
+      expect(described_class.enc_name).to eq 'A192GCM'
+    end
+  end
 end

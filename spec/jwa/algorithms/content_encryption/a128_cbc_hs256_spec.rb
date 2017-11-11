@@ -21,4 +21,10 @@ describe JWA::Algorithms::ContentEncryption::A128CbcHs256 do
 
     let(:tag) { '65 2c 3f a3 6b 0a 7c 5b 32 19 fa b3 a3 0b c1 c4' }
   end
+
+  describe '.enc_name' do
+    it 'equals A128CBC-HS256' do
+      expect(described_class.enc_name).to eq 'A128CBC-HS256'
+    end
+  end
 end

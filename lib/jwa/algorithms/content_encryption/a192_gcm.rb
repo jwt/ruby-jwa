@@ -7,6 +7,10 @@ module JWA
         include AesGcm
 
         class << self
+          def enc_name
+            'A192GCM'
+          end
+
           def key_length
             24
           end

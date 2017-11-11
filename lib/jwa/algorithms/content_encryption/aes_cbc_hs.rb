@@ -50,7 +50,7 @@ module JWA
           length = [authenticated_data.length * 8].pack('Q>') # 64bit big endian
 
           to_sign = authenticated_data + @iv + ciphertext + length
-          signature = OpenSSL::HMAC.digest(OpenSSL::Digest.new(self.class.hash_name), mac_key, to_sign)
+          signature = OpenSSL::HMAC.digest(self.class.hash, mac_key, to_sign)
 
           signature[0...mac_key.length]
         end

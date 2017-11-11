@@ -25,4 +25,10 @@ describe JWA::Algorithms::ContentEncryption::A192CbcHs384 do
        75 16 80 39 cc c7 33 d7'
     end
   end
+
+  describe '.enc_name' do
+    it 'equals A192CBC-HS384' do
+      expect(described_class.enc_name).to eq 'A192CBC-HS384'
+    end
+  end
 end

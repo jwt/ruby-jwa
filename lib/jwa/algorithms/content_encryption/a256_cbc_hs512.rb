@@ -7,6 +7,10 @@ module JWA
         include AesCbcHs
 
         class << self
+          def enc_name
+            'A256CBC-HS512'
+          end
+
           def key_length
             64
           end
@@ -15,8 +19,8 @@ module JWA
             'AES-256-CBC'
           end
 
-          def hash_name
-            'sha512'
+          def hash
+            OpenSSL::Digest::SHA512.new
           end
         end
       end

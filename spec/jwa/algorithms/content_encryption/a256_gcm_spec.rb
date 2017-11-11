@@ -52,4 +52,10 @@ describe JWA::Algorithms::ContentEncryption::A256Gcm do
       )
     end
   end
+
+  describe '.enc_name' do
+    it 'equals A256GCM' do
+      expect(described_class.enc_name).to eq 'A256GCM'
+    end
+  end
 end
