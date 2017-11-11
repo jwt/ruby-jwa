@@ -3,7 +3,7 @@ require 'jwa/algorithms/content_encryption/aes_cbc_hs'
 module JWA
   module Algorithms
     module ContentEncryption
-      class A256cbcHs512
+      class A256CbcHs512
         include AesCbcHs
 
         class << self

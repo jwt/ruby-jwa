@@ -14,7 +14,7 @@ module JWA
         end
 
         def decrypt(public_key, content)
-          key = @inner.encrypt(public_key)
+          key = @inner.decrypt(public_key)
           self.class.kw_class.new(key).decrypt(content)
         end
       end

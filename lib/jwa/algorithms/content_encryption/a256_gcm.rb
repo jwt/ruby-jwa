@@ -3,7 +3,7 @@ require 'jwa/algorithms/content_encryption/aes_gcm'
 module JWA
   module Algorithms
     module ContentEncryption
-      class A256gcm
+      class A256Gcm
         include AesGcm
 
         class << self
