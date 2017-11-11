@@ -3,23 +3,23 @@ module JWA
     module KeyManagement
       module Pbes2
         def initialize(password, salt, iterations)
-          @password = password
-          @salt = "#{self.class.alg_name}\x00#{salt}"
-          @iterations = iterations
+          salt = "#{self.class.alg_name}\x00#{salt}"
+
+          @key = kdf.run(password, salt, iterations, self.class.key_length)
         end
 
         def encrypt(plaintext)
-          pbkdf2 = Support::PBKDF2.new(OpenSSL::Digest::SHA256.new)
-          key = pbkdf2.run(@password, @salt, @iterations, self.class.key_length)
-
-          self.class.kw_class.new(key).encrypt(plaintext)
+          self.class.kw_class.new(@key).encrypt(plaintext)
         end
 
         def decrypt(ciphertext)
-          pbkdf2 = Support::PBKDF2.new(OpenSSL::Digest::SHA256.new)
-          key = pbkdf2.run(@password, @salt, @iterations, self.class.key_length)
+          self.class.kw_class.new(@key).decrypt(ciphertext)
+        end
 
-          self.class.kw_class.new(key).decrypt(ciphertext)
+        private
+
+        def kdf
+          @_kdf ||= Support::PBKDF2.new(OpenSSL::Digest::SHA256.new)
         end
       end
     end
