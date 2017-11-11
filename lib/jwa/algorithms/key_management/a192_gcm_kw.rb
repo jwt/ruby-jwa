@@ -8,7 +8,7 @@ module JWA
 
         class << self
           def cipher
-            A192gcm
+            A192Gcm
           end
         end
       end
