@@ -4,18 +4,18 @@ module JWA
   module Algorithms
     module KeyManagement
       module EcdhEsKw
-        def initialize(private_key, apu, apv)
-          @inner = EcdhEs.new(private_key, self.class.shared_key_length, self.class.alg_name, apu, apv)
+        def initialize(ephemeral_key, apu, apv)
+          @inner = EcdhEs.new(ephemeral_key, self.class.shared_key_length, self.class.alg_name, apu, apv)
         end
 
-        def encrypt(public_key, content)
+        def encrypt(public_key, plaintext)
           key = @inner.encrypt(public_key)
-          self.class.kw_class.new(key).encrypt(content)
+          self.class.kw_class.new(key).encrypt(plaintext)
         end
 
-        def decrypt(public_key, content)
+        def decrypt(public_key, ciphertext)
           key = @inner.decrypt(public_key)
-          self.class.kw_class.new(key).decrypt(content)
+          self.class.kw_class.new(key).decrypt(ciphertext)
         end
       end
     end
