@@ -1,5 +1,3 @@
-require 'jwa/algorithms/key_management/pbes2'
-
 module JWA
   module Algorithms
     module KeyManagement
