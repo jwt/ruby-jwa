@@ -67,7 +67,7 @@ module JWA
         end
 
         def a_ri(b)
-          [b.first(8).join, b.last(8).join]
+          [b.first(8).join, b.to_a.last(8).join]
         end
 
         def cipher
