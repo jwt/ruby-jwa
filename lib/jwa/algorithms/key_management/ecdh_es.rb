@@ -2,11 +2,11 @@ module JWA
   module Algorithms
     module KeyManagement
       class EcdhEs
-        def initialize(ephemeral_key, result_length, algorithm_id, apu, apv)
+        def initialize(ephemeral_key, enc_algorithm, apu, apv)
           @ephemeral_key = ephemeral_key
-          @key_length = result_length * 8
+          @key_length = enc_algorithm.key_length * 8
 
-          algorithm_id = length_encode(algorithm_id)
+          algorithm_id = length_encode(enc_algorithm.enc_name)
           apu = length_encode(apu)
           apv = length_encode(apv)
           supp_pub_info = [@key_length].pack('N')

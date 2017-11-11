@@ -7,7 +7,7 @@ describe JWA::Algorithms::KeyManagement::EcdhEs do
   end
 
   it 'resolves alice\'s key according to the spec' do
-    alg = described_class.new(alice.to_openssl_key, 16, 'A128GCM', 'Alice', 'Bob')
+    alg = described_class.new(alice.to_openssl_key, JWA::Algorithms::ContentEncryption::A128Gcm, 'Alice', 'Bob')
 
     begin
       actual = alg.encrypt(bob.to_openssl_key.public_key)
@@ -21,7 +21,7 @@ describe JWA::Algorithms::KeyManagement::EcdhEs do
   end
 
   it 'resolves bob\'s key according to the spec' do
-    alg = described_class.new(bob.to_openssl_key, 16, 'A128GCM', 'Alice', 'Bob')
+    alg = described_class.new(bob.to_openssl_key, JWA::Algorithms::ContentEncryption::A128Gcm, 'Alice', 'Bob')
 
     begin
       actual = alg.encrypt(alice.to_openssl_key.public_key)
