@@ -38,6 +38,6 @@ describe JWA::Algorithms::KeyManagement::A128Kw do
   end
 
   it 'raises for wrong key sizes' do
-    expect { described_class.new("\x00" * 12) }.to raise_error(JWA::InvalidKey)
+    expect { described_class.new("\x00" * 12) }.to raise_error(ArgumentError)
   end
 end

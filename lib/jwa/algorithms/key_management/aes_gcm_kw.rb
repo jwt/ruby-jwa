@@ -7,7 +7,7 @@ module JWA
           @iv = iv
 
           if @key.length != self.class.key_length
-            raise JWA::InvalidKey, "Invalid Key. Expected length: #{self.class.key_length}. Actual: #{@key.length}."
+            raise ArgumentError, "Invalid Key. Expected length: #{self.class.key_length}. Actual: #{@key.length}."
           end
         end
 

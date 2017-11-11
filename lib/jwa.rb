@@ -12,7 +12,5 @@ require 'jwa/support/concat_kdf'
 require 'jwa/support/pbkdf2'
 
 module JWA
-  class InvalidKey < StandardError; end
-  class InvalidIV < StandardError; end
   class BadDecrypt < StandardError; end
 end

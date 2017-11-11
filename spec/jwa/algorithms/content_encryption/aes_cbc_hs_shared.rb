@@ -43,13 +43,13 @@ shared_examples 'AES-CBC-HS' do
   it 'raises when provided a wrong key size' do
     expect do
       described_class.new(b_key + "\x00", b_iv)
-    end.to raise_error(JWA::InvalidKey)
+    end.to raise_error(ArgumentError)
   end
 
   it 'raises when provided a wrong iv size' do
     expect do
       described_class.new(b_key, b_iv + "\x00")
-    end.to raise_error(JWA::InvalidIV)
+    end.to raise_error(ArgumentError)
   end
 
   it 'exposes the used key' do

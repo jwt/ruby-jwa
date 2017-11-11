@@ -12,11 +12,11 @@ module JWA
           @iv = iv || SecureRandom.random_bytes(12)
 
           if @key.length != self.class.key_length
-            raise JWA::InvalidKey, "Invalid Key. Expected length: #{self.class.key_length}. Actual: #{@key.length}."
+            raise ArgumentError, "Invalid Key. Expected length: #{self.class.key_length}. Actual: #{@key.length}."
           end
 
           if @iv.length != 12
-            raise JWA::InvalidIV, "Invalid IV. Expected length: 12. Actual: #{@iv.length}."
+            raise ArgumentError, "Invalid IV. Expected length: 12. Actual: #{@iv.length}."
           end
         end
 
