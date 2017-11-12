@@ -1,3 +1,9 @@
+# This implementation is protected by the attack described at:
+#   http://blogs.adobe.com/security/2017/03/critical-vulnerability-uncovered-in-json-encryption.html
+#
+# The Ruby wrapper around OpenSSL raises an OpenSSL::PKey::EC::Point error if an attempt is made to
+# initialize a public key with coordinates that do not reside on the wanted curve.
+
 module JWA
   module Algorithms
     module KeyManagement
